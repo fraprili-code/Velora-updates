@@ -19,7 +19,7 @@ Incolla un link, scegli la qualità e salva il video nella tua cartella. Se il s
 | **Playlist** | Esamina gli elementi e seleziona soltanto quelli che vuoi scaricare. |
 | **Audio e sottotitoli** | Scegli le lingue e i sottotitoli messi a disposizione dal sito. È disponibile anche il profilo Solo audio. |
 | **Coda di download** | Pausa, riprendi, riordina e gestisci più elementi. Imposta download simultanei, limite di velocità e recupero automatico facoltativo. |
-| **Libreria locale** | Cerca i video, filtra per sito o periodo, aprili, mostrali nel Finder e rinomina i file. |
+| **Libreria locale** | Cerca i video, filtra per sito o periodo, aprili, mostrali nel Finder e rinomina i file. **Pulisci** svuota la cronologia senza eliminare i file, con **Annulla** per ripristinare le voci. |
 | **Conversione facoltativa** | Crea una copia in un altro contenitore oppure una copia H.264/AAC compatibile, conservando sempre l’originale. |
 | **Integrazione con il Mac** | Modalità mini, barra dei menu, Servizio “Scarica con Velora”, estensione Condividi e notifiche facoltative. |
 
@@ -47,7 +47,9 @@ La versione attuale richiede **Apple Silicon** — M1, M2, M3 o successivi — e
 4. Premi **Scarica** oppure **⌘Invio**. I video terminati compaiono nella **Libreria**.
 5. Se il link diretto non funziona, apri **Browser**, avvia il video nella pagina e controlla i video rilevati.
 
-Con **⇧⌘M** passi alla modalità mini; **⇧⌘V** invia i link copiati al pannello Download.
+Con **⇧⌘M** passi alla modalità mini: Velora ricorda le dimensioni delle due modalità e, quando espandi, ritorna alla sezione precedente. **⇧⌘V** invia i link copiati al pannello Download.
+
+Nella Libreria, **Pulisci** rimuove le voci dei download completati dalla cronologia, lasciando video e sottotitoli nella loro cartella. Se hai impostato una ricerca o un filtro, **Pulisci risultati** agisce solo sulle voci visibili. Puoi ripristinarle con **Annulla**.
 
 ## Qualità originale e conversioni
 
