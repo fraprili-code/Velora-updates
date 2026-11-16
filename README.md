@@ -1,5 +1,9 @@
 # Velora
 
+Versione 2.0.4: nella coda c’è «Pulisci» per togliere i download da riprovare e annullati. Gli aggiornamenti hanno una chiave di firma nuova: chi ha già una versione precedente installa questa una volta a mano dal [DMG](https://github.com/fraprili-code/Velora-updates/releases/latest/download/Velora.dmg), poi gli aggiornamenti tornano automatici.
+
+Dalla 2.0.3: il motore di download parte in un attimo (circa 0,3 secondi invece di 4-5 a ogni anteprima e a ogni download), i menu del Mac sono in italiano e la prima apertura è spiegata passo per passo.
+
 **Scarica e organizza video sul tuo Mac, con un’interfaccia nativa e compatta.**
 
 Incolla un link, scegli la qualità e salva il video nella tua cartella. Se il sito usa un player incorporato, puoi aprirlo nel browser di Velora e cercare i video disponibili nella pagina.
@@ -18,7 +22,7 @@ Incolla un link, scegli la qualità e salva il video nella tua cartella. Se il s
 | **Browser integrato** | Apri una pagina, avvia il player e scegli fra i video e le varianti rilevate. Il browser ha una finestra separata. |
 | **Playlist** | Esamina gli elementi e seleziona soltanto quelli che vuoi scaricare. |
 | **Audio e sottotitoli** | Scegli le lingue e i sottotitoli messi a disposizione dal sito. È disponibile anche il profilo Solo audio. |
-| **Coda di download** | Pausa, riprendi, riordina e gestisci più elementi. Imposta download simultanei, limite di velocità e recupero automatico facoltativo. |
+| **Coda di download** | Pausa, riprendi, riordina e gestisci più elementi. Imposta download simultanei, limite di velocità e recupero automatico facoltativo. **Pulisci** toglie i download da riprovare e annullati, con **Annulla**. |
 | **Libreria locale** | Cerca i video, filtra per sito o periodo, aprili, mostrali nel Finder e rinomina i file. **Pulisci** svuota la cronologia senza eliminare i file, con **Annulla** per ripristinare le voci. |
 | **Conversione facoltativa** | Crea una copia in un altro contenitore oppure una copia H.264/AAC compatibile, conservando sempre l’originale. |
 | **Integrazione con il Mac** | Modalità mini, barra dei menu, Servizio “Scarica con Velora”, estensione Condividi e notifiche facoltative. |
@@ -37,7 +41,19 @@ L’estensione Condividi e le notifiche possono richiedere l’abilitazione nell
 
 La versione attuale richiede **Apple Silicon** — M1, M2, M3 o successivi — e **macOS 14+**. Non è una build per Mac Intel.
 
-> **Primo avvio:** questa distribuzione personale è firmata localmente, ma non è ancora notarizzata da Apple né firmata con un certificato Developer ID. macOS può quindi bloccarne inizialmente l’apertura. Per valutare l’avviso e autorizzare consapevolmente l’app, consulta la [guida ufficiale Apple](https://support.apple.com/it-it/102445).
+### Prima apertura
+
+Velora non è firmata da Apple, quindi al primo avvio macOS può bloccarla. Scegli una di queste tre strade:
+
+1. **La più semplice:** copia `Velora.app` in Applicazioni da un disco esterno o da una chiavetta (non da AirDrop, dal browser o da un’email). Così macOS non la considera scaricata da Internet e si apre subito.
+2. **Dal DMG:** trascina Velora in Applicazioni e aprila una volta. Quando compare l’avviso, premi **Fine**. Apri **Impostazioni di Sistema → Privacy e sicurezza**, scorri fino in fondo, premi **Apri comunque** e inserisci la password del Mac. Da macOS 15 il tasto destro → Apri non basta più. Se poi anteprime o download non partono, usa anche la strada 3.
+3. **Dal Terminale:** dopo averla copiata in Applicazioni, incolla questo comando e premi Invio. Toglie il segno «scaricato da Internet» dall’app e dagli strumenti che contiene.
+
+   ```
+   xattr -dr com.apple.quarantine /Applications/Velora.app
+   ```
+
+Di solito serve solo la prima volta. Le stesse istruzioni sono nel file **Installazione.txt** dentro il DMG; la [guida Apple](https://support.apple.com/it-it/102445) spiega l’avviso di macOS.
 
 ## Come si usa
 
@@ -47,9 +63,9 @@ La versione attuale richiede **Apple Silicon** — M1, M2, M3 o successivi — e
 4. Premi **Scarica** oppure **⌘Invio**. I video terminati compaiono nella **Libreria**.
 5. Se il link diretto non funziona, apri **Browser**, avvia il video nella pagina e controlla i video rilevati.
 
-Con **⇧⌘M** passi alla modalità mini: Velora ricorda le dimensioni delle due modalità e, quando espandi, ritorna alla sezione precedente. **⇧⌘V** invia i link copiati al pannello Download.
+Con **⇧⌘M** passi alla modalità mini; **⇧⌘V** invia i link copiati al pannello Download.
 
-Nella Libreria, **Pulisci** rimuove le voci dei download completati dalla cronologia, lasciando video e sottotitoli nella loro cartella. Se hai impostato una ricerca o un filtro, **Pulisci risultati** agisce solo sulle voci visibili. Puoi ripristinarle con **Annulla**.
+Nella coda, **Pulisci** toglie i download da riprovare e quelli annullati; nella Libreria toglie le voci dei download completati, lasciando video e sottotitoli nella loro cartella (con una ricerca o un filtro attivo diventa **Pulisci risultati** e agisce solo sulle voci visibili). In tutti e due i casi puoi rimetterle con **Annulla**.
 
 ## Qualità originale e conversioni
 
@@ -63,7 +79,7 @@ La conversione si avvia esplicitamente dalla Libreria con **Converti una copia�
 
 Sono previsti due aggiornamenti distinti, attivi per impostazione predefinita:
 
-- **Motore di download:** Velora controlla le nuove versioni ufficiali di yt-dlp, che includono correzioni e supporto aggiornato per i siti.
+- **Motore di download:** Velora controlla le nuove versioni ufficiali di yt-dlp, che includono correzioni e supporto aggiornato per i siti. Scarica la versione «a cartella», che parte subito, e ne verifica l’impronta prima di usarla.
 - **App Velora:** controlla le nuove release tramite un catalogo firmato. Verifica firma e integrità del pacchetto; l’installazione automatica attende che l’app sia in background, senza operazioni o link in preparazione. Conserva una copia di recupero e ripristina la versione precedente se il nuovo avvio non viene confermato.
 
 I controlli periodici avvengono mentre Velora è aperta. Puoi avviarli anche da **Impostazioni → Aggiornamenti**. Le nuove funzioni dell’app arrivano quando viene pubblicata una nuova release: il motore non genera nuove funzioni da solo.
@@ -79,3 +95,4 @@ Il download diretto usa [yt-dlp](https://github.com/yt-dlp/yt-dlp), affiancato d
 Hai trovato un problema? [Apri una segnalazione](https://github.com/fraprili-code/Velora-updates/issues) indicando versione di Velora, versione di macOS, sito coinvolto e passaggi per riprodurlo. Se utile, aggiungi il messaggio d’errore. Evita password, cookie, link privati e dati personali.
 
 Questo repository distribuisce i pacchetti dell’app e il catalogo degli aggiornamenti; non contiene il codice sorgente completo di Velora. I componenti di terze parti e le relative licenze sono inclusi nel pacchetto.
+
